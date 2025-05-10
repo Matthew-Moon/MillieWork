@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -11,9 +12,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
+import com.millie.android.presentation.state.CatUiState
 import com.millie.android.presentation.theme.MillieApplicationTheme
+import com.millie.android.presentation.viewmodel.CatViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel: CatViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +34,17 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        viewModel.getImagesSearch()
+
+//        lifecycleScope.launchWhenStarted {
+//            viewModel.uiState.collect { state ->
+//                when (state) {
+//                    is CatUiState.Loading -> showProgress()
+//                    is CatUiState.Success -> showCatList(state.catList)
+//                    is CatUiState.Error -> showError(state.message)
+//                }
+//            }
+//        }
     }
 }
 

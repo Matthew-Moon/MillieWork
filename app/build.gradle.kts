@@ -90,4 +90,8 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
     testImplementation(libs.room.testing)
+
+    // Jetpack Compose Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7") // 버전은 최신으로
+
 }

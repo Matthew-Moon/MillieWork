@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CatViewModel @Inject constructor(
-    val getImagesSearchUseCase: GetImagesSearchUseCase
+    getImagesSearchUseCase: GetImagesSearchUseCase
 ) : ViewModel() {
 
     val catData: Flow<PagingData<CatImage>> =

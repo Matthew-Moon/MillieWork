@@ -16,15 +16,16 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import com.millie.android.domain.model.CatImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun WebViewScreen(url: String, onBack: () -> Unit) {
+fun WebViewScreen(catImage: CatImage, onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("고양이타이틀") },
+                title = { Text(catImage.id) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -52,7 +53,7 @@ fun WebViewScreen(url: String, onBack: () -> Unit) {
                         setSupportZoom(true)
                     }
 
-                    val htmlContent = getHtmlContent(url = url)
+                    val htmlContent = getHtmlContent(url = catImage.url)
                     loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null)
                 }
             },
@@ -88,7 +89,7 @@ private fun getHtmlContent(url: String): String {
                     img {
                         width: 100vw;
                         height: 100vh;
-                        object-fit: cover;
+                        object-fit: contain;
                     }
                 </style>
             </head>

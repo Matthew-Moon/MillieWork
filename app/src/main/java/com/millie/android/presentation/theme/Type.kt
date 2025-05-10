@@ -1,4 +1,4 @@
-package com.millie.android.ui.theme
+package com.millie.android.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

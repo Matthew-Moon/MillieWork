@@ -1,4 +1,4 @@
-package com.millie.android.ui.theme
+package com.millie.android.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

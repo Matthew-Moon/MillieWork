@@ -12,8 +12,7 @@ import com.millie.android.presentation.navigation.AppNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CatActivity : ComponentActivity() {
-
+class CatListActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +24,4 @@ class CatActivity : ComponentActivity() {
         }
     }
 }
-
 

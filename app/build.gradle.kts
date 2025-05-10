@@ -91,7 +91,11 @@ dependencies {
     ksp(libs.room.compiler)
     testImplementation(libs.room.testing)
 
-    // Jetpack Compose Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.7") // 버전은 최신으로
+    // hiltViewModel()을 사용 할 수 있기에 대체
+    implementation(libs.androidx.hilt.navigation.compose)
 
+    // paging3
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.common)
 }

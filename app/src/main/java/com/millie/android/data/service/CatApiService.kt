@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface CatApiService {
     @GET("v1/images/search")
     suspend fun getImagesSearch(
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int = 10
     ): List<ImagesSearchDto>
 }

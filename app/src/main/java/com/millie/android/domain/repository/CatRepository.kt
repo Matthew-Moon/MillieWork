@@ -1,7 +1,9 @@
 package com.millie.android.domain.repository
 
+import androidx.paging.PagingData
 import com.millie.android.domain.model.CatImage
+import kotlinx.coroutines.flow.Flow
 
 interface CatRepository {
-    suspend fun getCatImages(): List<CatImage>
+    fun getCatImages(): Flow<PagingData<CatImage>>
 }

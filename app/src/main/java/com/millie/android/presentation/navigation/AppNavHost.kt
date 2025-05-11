@@ -3,6 +3,7 @@ package com.millie.android.presentation.navigation
 import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -12,10 +13,14 @@ import com.google.gson.Gson
 import com.millie.android.domain.model.CatImage
 import com.millie.android.presentation.view.CatListScreen
 import com.millie.android.presentation.view.WebViewScreen
+import com.millie.android.presentation.viewmodel.CatViewModel
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
     val gson = remember { Gson() }
+
+    val viewModel: CatViewModel = hiltViewModel()
+    val imageCacheManager = viewModel.imageCacheManager
 
     NavHost(navController = navController, startDestination = "catList") {
         composable("catList") {
@@ -33,7 +38,10 @@ fun AppNavHost(navController: NavHostController) {
             val decoded = Uri.decode(json)
             val catImage = gson.fromJson(decoded, CatImage::class.java)  // 역직렬화
 
-            WebViewScreen(catImage = catImage) {
+            WebViewScreen(
+                catImage = catImage,
+                imageCacheManager = imageCacheManager
+            ) {
                 navController.popBackStack()
             }
         }

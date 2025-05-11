@@ -8,5 +8,4 @@ data class CatImage(
     val url: String,
     val width: Int,
     val height: Int,
-    val localImagePath: String? = null
 )

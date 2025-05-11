@@ -16,15 +16,15 @@ import javax.inject.Inject
 
 class CatRepositoryImpl @Inject constructor(
     private val api: CatApiService,
-    private val dao: CatDao
+    private val dao: CatDao,
 ) : CatRepository {
     override fun getCatImages(): Flow<PagingData<CatImage>> {
         return Pager(
             config = PagingConfig(pageSize = 10),
             pagingSourceFactory = { CatPagingSource(api, dao) }
         ).flow
-            .map { data ->
-                data.map { dto -> dto.toDomain() }
-            }
+//            .map { data ->
+//                data.map { dto -> dto.toDomain() }
+//            }
     }
 }

@@ -39,9 +39,9 @@ fun CatListScreen(
         items(catItems.itemCount) { index ->
             CatItem(
                 catImage = catItems[index],
-                onItemClick = onItemClick
+                onItemClick = onItemClick,
+                imageCacheManager = viewModel.imageCacheManager
             )
         }
     }
-
 }

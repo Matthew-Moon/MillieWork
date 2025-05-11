@@ -8,8 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.request.CachePolicy
+import coil.request.ImageRequest
 import com.millie.android.domain.model.CatImage
 
 @Composable
@@ -18,7 +21,11 @@ fun CatItem(
     onItemClick: (CatImage) -> Unit
 ) {
     AsyncImage(
-        model = catImage?.url,
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(catImage?.url)
+            .diskCachePolicy(CachePolicy.ENABLED)
+            .memoryCachePolicy(CachePolicy.ENABLED)
+            .build(),
         contentDescription = "고양이 사진",
         contentScale = ContentScale.FillBounds,
         modifier = Modifier

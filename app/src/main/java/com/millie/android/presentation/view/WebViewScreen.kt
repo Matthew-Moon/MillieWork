@@ -2,6 +2,7 @@ package com.millie.android.presentation.view
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -50,6 +51,7 @@ fun WebViewScreen(catImage: CatImage, onBack: () -> Unit) {
                         displayZoomControls = false
                         useWideViewPort = true
                         loadWithOverviewMode = true
+                        cacheMode = WebSettings.LOAD_DEFAULT
                         setSupportZoom(true)
                     }
 

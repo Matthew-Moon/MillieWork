@@ -23,7 +23,7 @@ class ImageCacheManager @Inject constructor(
 
         return@withContext try {
             val bitmap = Glide.with(context).asBitmap().load(url).submit().get()
-            FileOutputStream(file).use { bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it) }
+            FileOutputStream(file).use { bitmap.compress(Bitmap.CompressFormat.JPEG, 80, it) }
             true
         } catch (e: Exception) {
             e.printStackTrace()

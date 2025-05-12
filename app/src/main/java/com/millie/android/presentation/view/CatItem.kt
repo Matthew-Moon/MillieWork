@@ -58,7 +58,7 @@ fun CatItem(
 }
 
 @Composable
-fun rememberIsNetwork(): Boolean {
+private fun rememberIsNetwork(): Boolean {
     val context = LocalContext.current
     val connectivityManager = remember {
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

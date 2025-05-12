@@ -65,7 +65,6 @@ fun MillieTopAppbar(
                     lineHeight = 24.sp,
                     fontWeight = FontWeight(500),
                     color = Color.White,
-
                     textAlign = TextAlign.Center,
                 )
             )

@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CatViewModel @Inject constructor(
+class CatListViewModel @Inject constructor(
     getImagesSearchUseCase: GetImagesSearchUseCase,
     val imageCacheManager: ImageCacheManager,
 ) : ViewModel() {

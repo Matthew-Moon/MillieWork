@@ -13,13 +13,13 @@ import com.google.gson.Gson
 import com.millie.android.domain.model.CatImage
 import com.millie.android.presentation.view.CatListScreen
 import com.millie.android.presentation.view.WebViewScreen
-import com.millie.android.presentation.viewmodel.CatViewModel
+import com.millie.android.presentation.viewmodel.CatListViewModel
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
     val gson = remember { Gson() }
 
-    val viewModel: CatViewModel = hiltViewModel()
+    val viewModel: CatListViewModel = hiltViewModel()
     val imageCacheManager = viewModel.imageCacheManager
 
     NavHost(navController = navController, startDestination = "catList") {

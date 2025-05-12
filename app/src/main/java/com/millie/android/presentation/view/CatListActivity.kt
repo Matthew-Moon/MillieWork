@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.millie.android.presentation.navigation.AppNavHost
+import com.millie.android.presentation.theme.MillieApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,8 +23,10 @@ class CatListActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
-            Scaffold(modifier = Modifier.fillMaxSize()) {
-                AppNavHost(navController = navController)
+            MillieApplicationTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    AppNavHost(navController = navController)
+                }
             }
         }
     }

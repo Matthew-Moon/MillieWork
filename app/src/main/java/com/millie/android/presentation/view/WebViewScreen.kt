@@ -15,14 +15,41 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import com.millie.android.data.utils.ImageCacheManager
 import com.millie.android.domain.model.CatImage
+import timber.log.Timber
+import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun WebViewScreen(catImage: CatImage, onBack: () -> Unit) {
+fun WebViewScreen(
+    catImage: CatImage,
+    imageCacheManager: ImageCacheManager,
+    onBack: () -> Unit
+) {
+
+    val localFile = remember(catImage.id) {
+        val path = imageCacheManager.getFilePath(catImage.id)
+        File(path).takeIf { it.exists() }
+    }
+
+    val filePath = remember(catImage.id) {
+        localFile?.let {
+            """
+                <html>
+                  <body style="margin:0;padding0;">
+                    <img src="file://${localFile.absolutePath}" style="width:100%;height:auto;" />
+                  </body>
+                </html>
+            """.trimIndent()
+        } ?: run { null }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -49,14 +76,20 @@ fun WebViewScreen(catImage: CatImage, onBack: () -> Unit) {
                         javaScriptEnabled = true
                         builtInZoomControls = true
                         displayZoomControls = false
+                        allowFileAccess = true
                         useWideViewPort = true
                         loadWithOverviewMode = true
                         cacheMode = WebSettings.LOAD_DEFAULT
                         setSupportZoom(true)
                     }
 
-                    val htmlContent = getHtmlContent(url = catImage.url)
-                    loadDataWithBaseURL(null, htmlContent, "text/html", "UTF-8", null)
+                    filePath?.let {
+                        Timber.d("### 로컬 이미지 ==> $it")
+                        loadDataWithBaseURL(null, it, "text/html", "utf-8", null)
+                    } ?: run {
+                        Timber.d("### 서버 이미지 ==> ${getHtmlContent(catImage.url)}")
+                        loadDataWithBaseURL(null, getHtmlContent(catImage.url), "text/html", "utf-8", null)
+                    }
                 }
             },
             modifier = Modifier
@@ -101,3 +134,6 @@ private fun getHtmlContent(url: String): String {
             </html>
     """.trimIndent()
 }
+
+// TODO html 서버와로컬 코드 공통 및 정렬 처리 필요함
+// 내부 파일 캐시 정책 검토 어떤게 효율적인지?? 일반적인 방법 찾기

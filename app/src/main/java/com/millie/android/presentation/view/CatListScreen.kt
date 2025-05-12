@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -59,11 +59,19 @@ fun CatListScreen(
         when (catItems.loadState.refresh) {
             is LoadState.Loading -> {
                 Timber.d("### LoadState.Loading")
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center,
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(columns),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(12.dp)
+                        .height(64.dp),
+                    contentPadding = PaddingValues(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    CircularProgressIndicator()
+                    items(10) { index ->
+                        CatItemSkeleton(modifier = Modifier.fillMaxWidth())
+                    }
                 }
             }
 
@@ -84,18 +92,25 @@ fun CatListScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(12.dp)
-                        .height(64.dp)
-                    ,
+                        .height(64.dp),
                     contentPadding = PaddingValues(8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     items(catItems.itemCount) { index ->
-                        CatItem(
-                            catImage = catItems[index],
-                            onItemClick = onItemClick,
-                            imageCacheManager = viewModel.imageCacheManager
-                        )
+                        catItems[index]?.let { catImage ->
+                            CatItem(
+                                catImage = catImage,
+                                onItemClick = onItemClick,
+                                imageCacheManager = viewModel.imageCacheManager
+                            )
+                        }
+                    }
+
+                    if (catItems.loadState.append is LoadState.Loading) {
+                        items(3) {
+                            CatItemSkeleton(modifier = Modifier.fillMaxWidth())
+                        }
                     }
                 }
             }

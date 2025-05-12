@@ -52,16 +52,9 @@ fun WebViewScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(catImage.id) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.Default.Close,
-                            contentDescription = "뒤로가기"
-                        )
-                    }
-                }
+            MillieTopAppbar(
+                title = "고양이 ID: ${catImage.id}",
+                onLeftClick = onBack
             )
         }
     ) { paddingValues ->

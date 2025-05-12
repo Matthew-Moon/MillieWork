@@ -101,4 +101,7 @@ dependencies {
 
 
     implementation (libs.glide)
+
+    // 스플래시 스크린
+    implementation(libs.androidx.core.splashscreen)
 }

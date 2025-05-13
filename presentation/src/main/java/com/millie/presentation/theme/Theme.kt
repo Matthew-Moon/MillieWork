@@ -1,4 +1,4 @@
- package com.millie.android.presentation.theme
+package com.millie.presentation.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme

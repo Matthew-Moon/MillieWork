@@ -23,3 +23,4 @@ rootProject.name = "MillieApplication"
 include(":app")
 include(":data")
 include(":domain")
+include(":presentation")

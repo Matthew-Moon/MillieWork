@@ -1,4 +1,4 @@
-package com.millie.android.presentation.utils
+package com.millie.presentation.utils
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.RepeatMode

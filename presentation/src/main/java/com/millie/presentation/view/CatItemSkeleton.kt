@@ -1,4 +1,4 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.millie.android.presentation.utils.rememberShimmerBrush
+import com.millie.presentation.utils.rememberShimmerBrush
 
 @Composable
 fun CatItemSkeleton(modifier: Modifier = Modifier) {

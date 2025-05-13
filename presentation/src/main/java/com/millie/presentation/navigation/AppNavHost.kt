@@ -1,4 +1,4 @@
-package com.millie.android.presentation.navigation
+package com.millie.presentation.navigation
 
 import android.net.Uri
 import androidx.compose.runtime.Composable
@@ -10,9 +10,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.gson.Gson
-import com.millie.android.presentation.view.CatListScreen
-import com.millie.android.presentation.view.WebViewScreen
-import com.millie.android.presentation.viewmodel.CatListViewModel
+import com.millie.presentation.view.CatListScreen
+import com.millie.presentation.view.WebViewScreen
+import com.millie.presentation.viewmodel.CatListViewModel
 import com.millie.domain.model.CatImage
 
 @Composable

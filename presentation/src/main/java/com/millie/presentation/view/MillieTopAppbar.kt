@@ -1,6 +1,5 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
-import android.R.color.white
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -24,8 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.millie.android.R
-import com.millie.android.presentation.theme.MillieBackground
+import com.millie.presentation.R
+import com.millie.presentation.theme.MillieBackground
 
 
 @Composable

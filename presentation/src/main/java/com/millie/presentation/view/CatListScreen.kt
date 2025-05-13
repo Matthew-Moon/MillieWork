@@ -1,4 +1,4 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -29,9 +29,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.millie.android.presentation.viewmodel.CatListViewModel
+import com.millie.presentation.viewmodel.CatListViewModel
 import com.millie.domain.model.CatImage
-import timber.log.Timber
 
 @Composable
 fun CatListScreen(
@@ -58,7 +57,6 @@ fun CatListScreen(
 
         when (catItems.loadState.refresh) {
             is LoadState.Loading -> {
-                Timber.d("### LoadState.Loading")
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(columns),
                     modifier = Modifier
@@ -76,7 +74,6 @@ fun CatListScreen(
             }
 
             is LoadState.Error -> {
-                Timber.d("### LoadState.Error")
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center,
@@ -86,7 +83,6 @@ fun CatListScreen(
             }
 
             else -> {
-                Timber.d("### LoadState else")
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(columns),
                     modifier = Modifier

@@ -1,4 +1,4 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,10 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.millie.data.utils.ImageCacheManager
-import com.millie.android.presentation.utils.ImageWithSkeleton
 import com.millie.domain.model.CatImage
-import timber.log.Timber
+import com.millie.presentation.utils.ImageCacheManager
+import com.millie.presentation.utils.ImageWithSkeleton
 import java.io.File
 
 @Composable
@@ -26,11 +25,9 @@ fun CatItem(
     catImage?.let { catImage ->
         val image = remember(catImage, isNetwork) {
             if (isNetwork) {
-                Timber.d("### 서버 이미지 ==> ${catImage.url}")
                 catImage.url
             } else {
                 val file = File(imageCacheManager.getFilePath(catImage.id))
-                Timber.d("### 로컬 이미지 ==> $file")
                 file
             }
         }

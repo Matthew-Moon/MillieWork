@@ -1,4 +1,4 @@
-package com.millie.android.presentation.utils
+package com.millie.presentation.utils
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.request.ImageRequest
-import com.millie.android.presentation.view.CatItemSkeleton
+import com.millie.presentation.view.CatItemSkeleton
 
 @Composable
 fun ImageWithSkeleton(

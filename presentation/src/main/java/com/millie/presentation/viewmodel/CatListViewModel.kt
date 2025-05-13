@@ -1,13 +1,13 @@
-package com.millie.android.presentation.viewmodel
+package com.millie.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.millie.data.utils.ImageCacheManager
 import com.millie.domain.model.CatImage
 import com.millie.domain.usecase.GetImagesSearchUseCase
+import com.millie.presentation.utils.ImageCacheManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

@@ -1,4 +1,4 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
-import com.millie.android.presentation.navigation.AppNavHost
-import com.millie.android.presentation.theme.MillieApplicationTheme
+import com.millie.presentation.navigation.AppNavHost
+import com.millie.presentation.theme.MillieApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

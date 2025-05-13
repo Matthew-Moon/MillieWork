@@ -58,7 +58,4 @@ dependencies {
 
     // Paging3
     implementation(libs.androidx.paging.runtime)
-
-    // Glide for bitmap
-    implementation (libs.glide)
 }

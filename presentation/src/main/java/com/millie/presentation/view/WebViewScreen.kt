@@ -1,4 +1,4 @@
-package com.millie.android.presentation.view
+package com.millie.presentation.view
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.millie.data.utils.ImageCacheManager
 import com.millie.domain.model.CatImage
+import com.millie.presentation.utils.ImageCacheManager
 import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)

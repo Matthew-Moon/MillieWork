@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.millie.android.domain.model.CatImage
 import com.millie.android.presentation.viewmodel.CatListViewModel
+import com.millie.domain.model.CatImage
 import timber.log.Timber
 
 @Composable

@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -56,19 +58,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Retrofit
-    implementation(libs.retrofit.core)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
-    
     // Timber
     implementation(libs.timber)
-    
+
     // Coroutines
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
-    
+
     // MVVM
     implementation(libs.viewmodel.ktx)
 
@@ -80,28 +76,20 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
     kspAndroidTest(libs.hilt.compiler)
     androidTestAnnotationProcessor(libs.hilt.compiler)
-    
+
     // Coil
     implementation(libs.coil)
     implementation(libs.coil.compose)
 
-    // Room
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    ksp(libs.room.compiler)
-    testImplementation(libs.room.testing)
-
     // hiltViewModel()을 사용 할 수 있기에 대체
     implementation(libs.androidx.hilt.navigation.compose)
 
-    // paging3
-    implementation(libs.androidx.paging.runtime)
-    implementation(libs.androidx.paging.compose)
-    implementation(libs.androidx.paging.common)
-
-
-    implementation (libs.glide)
-
-    // 스플래시 스크린
+    // Splashscreen
     implementation(libs.androidx.core.splashscreen)
+
+    // Paging3
+    implementation(libs.androidx.paging.compose)
+
+    // Gson
+    implementation(libs.gson)
 }

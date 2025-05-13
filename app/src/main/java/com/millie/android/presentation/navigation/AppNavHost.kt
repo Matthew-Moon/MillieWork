@@ -10,10 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.gson.Gson
-import com.millie.android.domain.model.CatImage
 import com.millie.android.presentation.view.CatListScreen
 import com.millie.android.presentation.view.WebViewScreen
 import com.millie.android.presentation.viewmodel.CatListViewModel
+import com.millie.domain.model.CatImage
 
 @Composable
 fun AppNavHost(navController: NavHostController) {

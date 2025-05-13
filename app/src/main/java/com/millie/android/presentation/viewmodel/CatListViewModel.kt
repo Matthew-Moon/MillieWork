@@ -5,9 +5,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.millie.android.data.utils.ImageCacheManager
-import com.millie.android.domain.model.CatImage
-import com.millie.android.domain.usecase.GetImagesSearchUseCase
+import com.millie.data.utils.ImageCacheManager
+import com.millie.domain.model.CatImage
+import com.millie.domain.usecase.GetImagesSearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

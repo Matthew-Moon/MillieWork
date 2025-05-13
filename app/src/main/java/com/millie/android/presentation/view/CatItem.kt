@@ -9,9 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.millie.android.data.utils.ImageCacheManager
-import com.millie.android.domain.model.CatImage
+import com.millie.data.utils.ImageCacheManager
 import com.millie.android.presentation.utils.ImageWithSkeleton
+import com.millie.domain.model.CatImage
 import timber.log.Timber
 import java.io.File
 

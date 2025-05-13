@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MillieApplication" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.MillieWorkTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowSplashScreenBackground">@color/millie_color</item>
+    </style>
 </resources>
